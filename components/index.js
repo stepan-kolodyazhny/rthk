@@ -12,22 +12,24 @@ AFRAME.registerComponent('raycaster-listen', {
   },
 
   tick: function () {
-    if (!this.raycaster) { return; }  // Not intersecting.
-
-    let intersection = this.raycaster.components.raycaster.getIntersection(this.el);
-    if (!intersection) { 
+    //console.log(this.el)
+    if (!this.raycaster) { 
       this.el.setAttribute('geometry', {
         primitive: 'box',
         height: 1,
         width: 1
       });
-      return; }
+      
+      return; }  // Not intersecting.
+
+    let intersection = this.raycaster.components.raycaster.getIntersection(this.el);
+    if (!intersection) { return; }
     console.log(intersection.point);
-    this.el.setAttribute('geometry', {
-      primitive: 'box',
-      height: 3,
-      width: 1
-    });
-    
+      this.el.setAttribute('geometry', {
+        primitive: 'box',
+        height: 3,
+        width: 1
+      });
   }
 });
+
