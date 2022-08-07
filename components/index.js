@@ -3,7 +3,7 @@ AFRAME.registerComponent('collider-check', {
 
   init: function () {
     this.el.addEventListener('raycaster-intersection', function () {
-      this.setAttribute('material', 'color', 'red');
+      this.setAttribute('material', 'color', 'green');
     });
   }
 });
