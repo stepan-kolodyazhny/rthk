@@ -16,6 +16,10 @@ AFRAME.registerComponent('raycaster-listen', {
     let intersection = this.raycaster.components.raycaster.getIntersection(this.el);
     if (!intersection) { return; }
     console.log(intersection.point);
-    this.setAttribute('material', 'color', 'green');
+    this.el.setAttribute('geometry', {
+      primitive: 'box',
+      height: 3,
+      width: 1
+    });
   }
 });
