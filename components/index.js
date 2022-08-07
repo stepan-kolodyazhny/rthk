@@ -23,20 +23,11 @@ AFRAME.registerComponent('raycaster-listen', {
       });
       return; }
     console.log(intersection.point);
+    this.el.setAttribute('geometry', {
+      primitive: 'box',
+      height: 3,
+      width: 1
+    });
     
-    if( this.el.getAttribute('geometry').height == 3) {
-      console.log('listens')
-      this.el.setAttribute('geometry', {
-        primitive: 'box',
-        height: 1,
-        width: 1
-      });
-    } else {
-      this.el.setAttribute('geometry', {
-        primitive: 'box',
-        height: 3,
-        width: 1
-      });
-    }
   }
 });
