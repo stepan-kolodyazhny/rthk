@@ -15,6 +15,11 @@ AFRAME.registerComponent('raycaster-listen', {
     //console.log(this.el)
     if (!this.raycaster) { 
       console.log("nope")
+      this.el.setAttribute('geometry', {
+        primitive: 'box',
+        height: 1,
+        width: 1
+      });
       return; }  // Not intersecting.
 
     let intersection = this.raycaster.components.raycaster.getIntersection(this.el);
