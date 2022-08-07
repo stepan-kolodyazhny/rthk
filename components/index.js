@@ -12,14 +12,20 @@ AFRAME.registerComponent('raycaster-listen', {
   },
 
   tick: function () {
- 
-
     if (!this.raycaster) { return; }  // Not intersecting.
 
     let intersection = this.raycaster.components.raycaster.getIntersection(this.el);
-    if (!intersection) { return; }
+    if (!intersection) { 
+      this.el.setAttribute('geometry', {
+        primitive: 'box',
+        height: 1,
+        width: 1
+      });
+      return; }
     console.log(intersection.point);
+    
     if( this.el.getAttribute('geometry').height == 3) {
+      console.log('listens')
       this.el.setAttribute('geometry', {
         primitive: 'box',
         height: 1,
