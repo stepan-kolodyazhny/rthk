@@ -12,9 +12,7 @@ AFRAME.registerComponent('raycaster-listen', {
   },
 
   tick: function () {
-    //console.log(this.el)
     if (!this.raycaster) { 
-      console.log("nope")
       this.el.setAttribute('geometry', {
         primitive: 'box',
         height: 1,
